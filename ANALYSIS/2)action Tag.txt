@@ -1,0 +1,15 @@
+CRAG uses a retrieval evaluator to assess the quality of retrieved documents 
+and routes the pipeline into different actions (CORRECT, AMBIGUOUS, INCORRECT) 
+based on threshold rules.
+
+During implementation, I observed that the routing decision is driven by the per-document 
+relevance scores. A single highly relevant chunk can dominate the decision even when the 
+remaining retrieved evidence is weak or inconsistent.
+
+I introduced a ConfidenceReport that summarizes retrieval quality using multiple statistics 
+instead of relying solely on individual relevance scores.
+
+The idea was inspired by a general principle in Information Retrieval: retrieval quality 
+should be assessed using the overall evidence rather than a single score. Similar feature 
+aggregation is commonly used in ranking systems and confidence estimation, so I applied the 
+same principle to CRAG's routing stage.

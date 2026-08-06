@@ -1,0 +1,37 @@
+document loader from sratch vs langchain document loader's
+
+================================
+CUSTOME_DOCUMENT_LOADER
+================================
+- Loading 100 pdf (16 pages each)
+AVERAGE TIME:3.2253301620483397 sec 
+
+- Loading 100 Text File (132 lines each)
+AVERAGE TIME: 0.00040826797485351565 sec 
+================================
+LANGCHAIN_DOCUMENT_LOADER
+================================
+*does not include time take to send request to server
+
+- Loading 100 pdf 16 pages each
+AVERAGE TIME:3.2881493091583254 sec
+
+- Loading 100 Text File (132 lines each) FROM DirectoryLoader
+AVERAGE TIME:0.0072394609451293945 sec
+
+======================================
+ANALYSIS 
+======================================
+While this new method is mathematically 94% faster, in absolute terms it only saves 6.8 milliseconds per run. 
+Therefore, this optimization is only 'efficient' if this function is executed millions of times per day. 
+For a single-use or low-frequency task, the improvement is negligible and not worth the complexity.
+
+it has various advantages.
+this custom document loader simplifies the file-handling process
+you only need to provide the file path, 
+and it will automatically process PDF, TXT, JSON, DOCX, MD, and CSV files. 
+Additionally, it offers the flexibility to customize which types of information you wish to store.  
+-----------------------------------------------------------------------------------------------------------------
+
+0.049193382263183594
+0.18528056144714355

@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crag"
+version = "0.1.0"
+description = "Corrective Retrieval-Augmented Generation (CRAG) implementation"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "torch==2.7.1",
+    "transformers>=4.40.0",
+    "accelerate>=0.29.0",
+    "faiss-cpu>=1.8.0",
+    "sentence-transformers>=2.7.0",
+    "duckduckgo-search>=5.3.0",
+    "pydantic>=2.7.0",
+    "tqdm>=4.66.0",
+    "datasets>=5.0.0",
+    "pydantic-settings>=2.14.2",
+    "python-dotenv>=1.2.2",
+    "pypdf>=6.14.2",
+    "numpy>=2.5.1",
+    "requests>=2.34.2",
+    "beautifulsoup4>=4.15.0",
+    "ddgs>=9.14.4",
+    "streamlit>=1.60.0",
+    "plotly>=6.9.0",
+    "pymupdf>=1.28.0",
+    "asttokens>=3.0.2",
+    "python-docx>=1.2.0",
+    "rank-bm25>=0.2.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.1.1",
+    "ruff>=0.4.0",
+    "mypy>=1.9.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv]
+package = true
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+    "ipython>=9.16.0",
+    "jupyter>=1.1.1",
+]
