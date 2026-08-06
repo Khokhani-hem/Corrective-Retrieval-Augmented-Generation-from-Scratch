@@ -32,6 +32,3 @@ you only need to provide the file path,
 and it will automatically process PDF, TXT, JSON, DOCX, MD, and CSV files. 
 Additionally, it offers the flexibility to customize which types of information you wish to store.  
 -----------------------------------------------------------------------------------------------------------------
-
-0.049193382263183594
-0.18528056144714355
